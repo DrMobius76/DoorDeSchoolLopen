@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &822619926887597834
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1839777778833351427, guid: dfc6ff0ad017474458333a832af3a7ae,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1839777778833351427, guid: dfc6ff0ad017474458333a832af3a7ae,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.9041138
+      objectReference: {fileID: 0}
+    - target: {fileID: 1839777778833351427, guid: dfc6ff0ad017474458333a832af3a7ae,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.21987152
+      objectReference: {fileID: 0}
+    - target: {fileID: 1839777778833351427, guid: dfc6ff0ad017474458333a832af3a7ae,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.661438
+      objectReference: {fileID: 0}
+    - target: {fileID: 1839777778833351427, guid: dfc6ff0ad017474458333a832af3a7ae,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.033155207
+      objectReference: {fileID: 0}
+    - target: {fileID: 1839777778833351427, guid: dfc6ff0ad017474458333a832af3a7ae,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1839777778833351427, guid: dfc6ff0ad017474458333a832af3a7ae,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.9994502
+      objectReference: {fileID: 0}
+    - target: {fileID: 1839777778833351427, guid: dfc6ff0ad017474458333a832af3a7ae,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1839777778833351427, guid: dfc6ff0ad017474458333a832af3a7ae,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1839777778833351427, guid: dfc6ff0ad017474458333a832af3a7ae,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -176.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1839777778833351427, guid: dfc6ff0ad017474458333a832af3a7ae,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3446219071158358288, guid: dfc6ff0ad017474458333a832af3a7ae,
+        type: 3}
+      propertyPath: m_Name
+      value: Monitor 27' Curved (1) Variant (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337874452070858328, guid: dfc6ff0ad017474458333a832af3a7ae,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -1401359731794561901, guid: 23b0dd5a7ef9a6848bbb392859e79964,
+        type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dfc6ff0ad017474458333a832af3a7ae, type: 3}

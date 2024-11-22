@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7346285142318293173
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -4216859302048453862, guid: 8fc20eaeac9d0da40954862450544b91,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.167404
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 8fc20eaeac9d0da40954862450544b91,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.8307648
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 8fc20eaeac9d0da40954862450544b91,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 12.615387
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 8fc20eaeac9d0da40954862450544b91,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 8fc20eaeac9d0da40954862450544b91,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 8fc20eaeac9d0da40954862450544b91,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 8fc20eaeac9d0da40954862450544b91,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 8fc20eaeac9d0da40954862450544b91,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 8fc20eaeac9d0da40954862450544b91,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 8fc20eaeac9d0da40954862450544b91,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 8fc20eaeac9d0da40954862450544b91,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1460669411133154288, guid: 8fc20eaeac9d0da40954862450544b91,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e3444642a1d1346ba8683c66e1272378, type: 2}
+    - target: {fileID: -927199367670048503, guid: 8fc20eaeac9d0da40954862450544b91,
+        type: 3}
+      propertyPath: m_Name
+      value: LumaTV180-80_105h
+      objectReference: {fileID: 0}
+    - target: {fileID: 1494276591771196253, guid: 8fc20eaeac9d0da40954862450544b91,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2b81451d5ea0d2f47b8963e44e36e1ed, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8fc20eaeac9d0da40954862450544b91, type: 3}

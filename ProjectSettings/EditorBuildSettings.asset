@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/VR-Scenes/VR-Start scherm.unity
+    guid: caa81c69f6155754e93033569b4b6577
+  - enabled: 1
+    path: Assets/VR-Scenes/Theorie lokaal 1.unity
+    guid: 93e5dc38f1a0c1c4ca1c00742d78c212
+  - enabled: 1
+    path: Assets/VR-Scenes/Zelfstudie ruimte.unity
+    guid: 8820f4ea9dc934b4786a57a375a0b732
+  - enabled: 1
+    path: Assets/VR-Scenes/Media room.unity
+    guid: ed293a3f9ac41bd41b125ee3515e3c49
+  - enabled: 1
+    path: Assets/VR-Scenes/Student ruimte.unity
+    guid: 1a3ed615d95034c4a8ae0fc984ed5f2c
+  - enabled: 1
+    path: Assets/VR-Scenes/Project lokaal.unity
+    guid: e0252d4e13378de4bbefe56304a8f019
+  - enabled: 1
+    path: Assets/VR-Scenes/Praktijk lokaal.unity
+    guid: 88585ef5c30cf2d4c841b1503f613e7f
+  m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 07ac024a942eee14bb7ea7d22a992408,
+      type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 4c9450f81dad5ac44afa536f31eb14e0,
+      type: 2}
