@@ -2,35 +2,51 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMove : MonoBehaviour
 {
-	public CharacterController controller;
-    
-	public float speed = 12f;
-	public float gravity = -9.81f;
-	public Transform groundCheck;
-	public float groundDistance = 0.4f;
-	public LayerMask groundMask;
 
-	Vector3 velocity;
-	bool isGrounded;
+
+    CharacterController Controller;
+
+    public float Speed;
+
+    public Transform Cam;
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+
+        Controller = GetComponent<CharacterController>();
+
+    }
+
     // Update is called once per frame
     void Update()
     {
-	 isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-	 if(isGrounded && velocity.y < 0f)
-	 {
-		velocity.y = -2f;
-	 }
-     float x = Input.GetAxis("Horizontal");
-	 float z = Input.GetAxis("Vertical");   
+        float Horizontal = Input.GetAxis("Horizontal") * Speed * Time.deltaTime;
+        float Vertical = Input.GetAxis("Vertical") * Speed * Time.deltaTime;
 
-	 Vector3 move = transform.right * x + transform.forward * z;
-	
-	 controller.Move(move * speed * Time.deltaTime);
-	 velocity.y += gravity * Time.deltaTime;
+        Vector3 Movement = Cam.transform.right * Horizontal + Cam.transform.forward * Vertical;
+        Movement.y = 0f;
 
-	controller.Move(velocity * Time.deltaTime);
-	}
+
+
+        Controller.Move(Movement);
+
+        if (Movement.magnitude != 0f)
+        {
+            transform.Rotate(Vector3.up * Input.GetAxis("Mouse X") * Cam.GetComponent<CameraMove>().sensivity * Time.deltaTime);
+
+
+            Quaternion CamRotation = Cam.rotation;
+            CamRotation.x = 0f;
+            CamRotation.z = 0f;
+
+            transform.rotation = Quaternion.Lerp(transform.rotation, CamRotation, 0.1f);
+
+        }
+    }
+
 }
