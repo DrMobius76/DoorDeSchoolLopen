@@ -54,6 +54,8 @@ public class CountDownTimer : MonoBehaviour
     public void StartGame()
     {
         StartBool = true;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void AddTime()

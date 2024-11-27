@@ -18,8 +18,7 @@ public class MouseCameraMovement : MonoBehaviour
     void Start()
     {
         adjustedDistance = distance;
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        
     }
 
     void Update()
