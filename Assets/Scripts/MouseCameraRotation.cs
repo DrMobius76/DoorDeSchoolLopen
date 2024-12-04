@@ -1,77 +1,54 @@
 using UnityEngine;
-public class MouseCameraMovement : MonoBehaviour
+
+public class MouseCameraRotation : MonoBehaviour
 {
-    public Transform player; // The Object turn around the camera
-    public float distance = 5f; // Distance to the player
-    public float minDistance = 1f;
-    public float maxDistance = 5f;
-    public float sensitivity = 5f; // Rotation sensitivity
-    public float minY = -20f;
-    public float maxY = 80f;
-    public LayerMask collisionMask;
+    public Transform player; // De speler of het middelpunt waar de camera rond draait
+    public float distance = 5f; // Max afstand van de camera tot de speler
+    public float sensitivity = 2f; // Gevoeligheid van de muis
+    public float verticalRotationLimit = 80f; // Limiet voor verticale rotatie
+    public LayerMask collisionMask; // Masker om te bepalen wat de camera blokkeert
 
-    public float currentX = 0f;
-    public float currentY = 0f;
-    private float adjustedDistance;
-
+    private float currentXRotation = 0f; // Houd de verticale rotatie bij
+    private float currentYRotation = 0f; // Houd de horizontale rotatie bij
 
     void Start()
     {
-        adjustedDistance = distance;
-        Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-    }
-
-    void Update()
-    {
-        if (Input.GetMouseButton(1))
-        {
-            currentX += Input.GetAxis("Mouse X") * sensitivity;
-            currentY -= Input.GetAxis("Mouse Y") * sensitivity;
-            currentY =  Mathf.Clamp(currentY, minY, maxY);
-        }
     }
 
     void LateUpdate()
     {
-        
-        Quaternion rotation = Quaternion.Euler(currentY, currentX, 0);
+        // Muisinput
+        float mouseX = Input.GetAxis("Mouse X") * sensitivity;
+        float mouseY = Input.GetAxis("Mouse Y") * sensitivity;
 
-        
-        Vector3 desiredPosition = player.position - (rotation * Vector3.forward * distance);
-        Vector3 direction = desiredPosition - player.position;
+        // Horizontale rotatie
+        currentYRotation += mouseX;
+
+        // Verticale rotatie met limieten
+        currentXRotation -= mouseY;
+        currentXRotation = Mathf.Clamp(currentXRotation, -verticalRotationLimit, verticalRotationLimit);
+
+        // Bereken de rotatie van de camera
+        Quaternion rotation = Quaternion.Euler(currentXRotation, currentYRotation, 0);
+
+        // Bepaal de maximale camera-offset
+        Vector3 desiredCameraPosition = player.position - (rotation * Vector3.forward * distance);
+
+        // Raycast om obstakels te detecteren
         RaycastHit hit;
-
-        if (Physics.Raycast(player.position, direction.normalized, out hit, distance, collisionMask))
+        if (Physics.Raycast(player.position, desiredCameraPosition - player.position, out hit, distance, collisionMask))
         {
-          
-            adjustedDistance = Mathf.Clamp(hit.distance, minDistance, distance);
+            // Als er een obstakel is, plaats de camera op de raakpositie
+            transform.position = hit.point;
         }
         else
         {
-            
-            adjustedDistance = distance;
+            // Geen obstakel, gebruik de gewenste positie
+            transform.position = desiredCameraPosition;
         }
 
-       
-        Vector3 position = player.position - (rotation * Vector3.forward * adjustedDistance);
-        transform.position = position;
-
-   
+        // Zorg ervoor dat de camera altijd naar de speler kijkt
         transform.LookAt(player);
-
-       
-        AdjustForVerticalObstacles();
-    }
-
-    void AdjustForVerticalObstacles()
-    {
-   
-        RaycastHit verticalHit;
-        if (Physics.Raycast(transform.position, Vector3.down, out verticalHit, 0.5f, collisionMask) ||
-            Physics.Raycast(transform.position, Vector3.up, out verticalHit, 0.5f, collisionMask))
-        {
-            transform.position = verticalHit.point;
-        }
     }
 }
