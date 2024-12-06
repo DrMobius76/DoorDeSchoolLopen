@@ -1,52 +1,60 @@
-﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Movement Settings")]
+    public float Speed = 5f; // De snelheid van de speler
+    public float gravity = -9.81f; // Gravitatiekracht
+    public float jumpHeight = 2f; // De hoogte van de sprong
 
+    private CharacterController controller;
+    private Vector3 velocity;
 
-    CharacterController Controller;
-
-    public float Speed;
-
-    public Transform Cam;
-
-
-    // Start is called before the first frame update
     void Start()
     {
-
-        Controller = GetComponent<CharacterController>();
-
+        controller = GetComponent<CharacterController>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-
-        float Horizontal = Input.GetAxis("Horizontal") * Speed * Time.deltaTime;
-        float Vertical = Input.GetAxis("Vertical") * Speed * Time.deltaTime;
-
-        Vector3 Movement = Cam.transform.right * Horizontal + Cam.transform.forward * Vertical;
-        Movement.y = 0f;
-
-
-
-        Controller.Move(Movement);
-
-        if (Movement.magnitude != 0f)
+        if (controller.isGrounded)
         {
-            transform.Rotate(Vector3.up * Input.GetAxis("Mouse X") * Cam.GetComponent<CameraMove>().sensivity * Time.deltaTime);
+            // Reset verticale snelheid wanneer op de grond
+            if (velocity.y < 0)
+            {
+                velocity.y = -2f; // Houd de speler stevig op de grond
+            }
 
-
-            Quaternion CamRotation = Cam.rotation;
-            CamRotation.x = 0f;
-            CamRotation.z = 0f;
-
-            transform.rotation = Quaternion.Lerp(transform.rotation, CamRotation, 0.1f);
-
+            // Controleer op sprong
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Debug.Log("Dit werkt");
+                Jump();
+            }
         }
+
+        // Pas zwaartekracht continu toe
+        velocity.y += gravity * Time.deltaTime;
+
+        // Beweeg speler
+        Move();
+
+        // Pas verticale beweging toe
+        controller.Move(velocity * Time.deltaTime);
     }
 
+    void Move()
+    {
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        Vector3 move = transform.right * horizontal + transform.forward * vertical;
+        controller.Move(move * Speed * Time.deltaTime);
+    }
+
+    void Jump()
+    {
+        // Bereken sprongsnelheid
+        velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+    }
 }

@@ -9,6 +9,7 @@ public class CrouchingScript : MonoBehaviour
     public float standingScaleY = 1f;   // Y scale when standing
     public float crouchSpeed = 6f;      // Movement speed when crouched
     public float standingSpeed = 12f;  // Movement speed when standing
+    public float PlayerMovementSpeed = 1f;
 
     private bool isCrouching = false;
 
