@@ -41,7 +41,7 @@ public class CrouchingScript : MonoBehaviour
         scale.y = crouchScaleY; // Set the Y scale to the crouch value
         transform.localScale = scale;
 
-        GetComponent<PlayerMovement>().Speed = crouchSpeed; // Reduce movement speed
+        GetComponent<PlayerMovement>().speed = crouchSpeed; // Reduce movement speed
     }
 
     void Stand()
@@ -50,6 +50,6 @@ public class CrouchingScript : MonoBehaviour
         scale.y = standingScaleY; // Reset the Y scale to the standing value
         transform.localScale = scale;
 
-        GetComponent<PlayerMovement>().Speed = standingSpeed; // Reset movement speed
+        GetComponent<PlayerMovement>().speed = standingSpeed; // Reset movement speed
     }
 }

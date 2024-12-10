@@ -1,12 +1,13 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement Settings")]
-    public float Speed = 5f; // De snelheid van de speler
+    public float speed = 5f; // De snelheid van de speler
     public float gravity = -9.81f; // Gravitatiekracht
     public float jumpHeight = 2f; // De hoogte van de sprong
-
+    public Transform cameraTransform;
     private CharacterController controller;
     private Vector3 velocity;
 
@@ -48,8 +49,18 @@ public class PlayerMovement : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        Vector3 move = transform.right * horizontal + transform.forward * vertical;
-        controller.Move(move * Speed * Time.deltaTime);
+        Vector3 forward = cameraTransform.forward;
+        Vector3 right = cameraTransform.right;
+
+        forward.y = 0f;
+        right.y = 0f;
+
+        forward.Normalize();
+        right.Normalize();
+
+        Vector3 velocity = (forward * vertical + right * horizontal).normalized;
+
+        controller.Move(velocity * speed * Time.deltaTime);
     }
 
     void Jump()
