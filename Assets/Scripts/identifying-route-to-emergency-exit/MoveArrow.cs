@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoveArrow : MonoBehaviour
 {
-    public float amplitude = 1f;
+    public float amplitude = 0.5f;
     public float speed = 1f;
     private Vector3 startPosition;  
     // Start is called before the first frame update
@@ -17,7 +17,7 @@ public class MoveArrow : MonoBehaviour
     void Update()
     {
         float newY = startPosition.y + Mathf.Sin(Time.time * speed) * amplitude;
-        transform.position = new Vector3(startPosition.x, newY, startPosition.z);
+        transform.position = new Vector3(transform.position.x, newY, transform.position.z);
 
     }
 }

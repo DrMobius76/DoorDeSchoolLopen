@@ -1,20 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class ArrowController : MonoBehaviour
+public class MoveArrowToDoor : MonoBehaviour
 {
-    public Transform door2Position; // De positie van deur 2
+    public Transform Door2; // De positie van deur 2
+    public Transform Door3; // De positie van deur 3
     private bool isNearDoor1 = false; // Controleert of de speler bij deur 1 is
 
     void Update()
     {
-        // Controleer of de speler op E drukt en dichtbij deur 1 is
-        if (isNearDoor1 && Input.GetKeyDown(KeyCode.E))
+        Puzzle1();
+
+        Puzzle2();
+        
+    }
+
+    private void Puzzle1()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
         {
+            
             // Verplaats de pijl naar de positie van deur 2
-            transform.position = door2Position.position;
+            transform.position = Door2.position + new Vector3(0, 1, 0);
         }
     }
+
+    private void Puzzle2()
+    {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            
+            // Verplaats de pijl naar de positie van deur 3
+            transform.position = Door3.position + new Vector3(0, 1, 0);
+        }
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {
