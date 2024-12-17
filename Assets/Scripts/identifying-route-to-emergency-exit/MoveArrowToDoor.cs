@@ -1,57 +1,60 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 public class MoveArrowToDoor : MonoBehaviour
 {
+    public Transform Door1; // De positie van deur 1
     public Transform Door2; // De positie van deur 2
     public Transform Door3; // De positie van deur 3
-    private bool isNearDoor1 = false; // Controleert of de speler bij deur 1 is
+
+    private Transform currentDoor; // Houdt bij boven welke deur de pijl zich bevindt
+    private Quaternion arrowRotation; // Standaard rotatie van de pijl (rechtop)
+
+    void Start()
+    {
+        // Stel de standaard rotatie van de pijl in (rechtop met punt naar beneden)
+        arrowRotation = Quaternion.Euler(0, 0, 0);
+
+        // Startpositie van de pijl boven deur 1
+        currentDoor = Door1;
+        UpdateArrowPosition();
+    }
 
     void Update()
     {
-        Puzzle1();
-
-        Puzzle2();
-        
-    }
-
-    private void Puzzle1()
-    {
+        // Interacties om de pijl te verplaatsen
         if (Input.GetKeyDown(KeyCode.E))
         {
-            
-            // Verplaats de pijl naar de positie van deur 2
-            transform.position = Door2.position + new Vector3(0, 1, 0);
+            MoveArrowTo(Door2);
+        }
+        else if (Input.GetKeyDown(KeyCode.I))
+        {
+            MoveArrowTo(Door3);
         }
     }
 
-    private void Puzzle2()
+    private void MoveArrowTo(Transform targetDoor)
     {
-        if (Input.GetKeyDown(KeyCode.I))
+        // Controleer of de pijl al bij de doeldeur is
+        if (currentDoor == targetDoor)
         {
-            
-            // Verplaats de pijl naar de positie van deur 3
-            transform.position = Door3.position + new Vector3(0, 1, 0);
+            Debug.Log("De pijl is al boven deze deur!");
+            return;
         }
+
+        // Verplaats de pijl naar de nieuwe deur
+        currentDoor = targetDoor;
+        UpdateArrowPosition();
     }
 
-
-    private void OnTriggerEnter(Collider other)
+    private void UpdateArrowPosition()
     {
-        // Controleer of de speler het triggergebied van deur 1 binnenkomt
-        if (other.CompareTag("Player"))
+        // Positioneer de pijl boven de huidige deur
+        if (currentDoor != null)
         {
-            isNearDoor1 = true;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        // Controleer of de speler het triggergebied van deur 1 verlaat
-        if (other.CompareTag("Player"))
-        {
-            isNearDoor1 = false;
+            transform.position = currentDoor.position + new Vector3(0, 1, 0); // Verplaats de pijl boven de deur
+            transform.rotation = arrowRotation; // Houd de pijl rechtop
         }
     }
 }
-

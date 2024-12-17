@@ -26,6 +26,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/VR-Scenes/Praktijk lokaal.unity
     guid: 88585ef5c30cf2d4c841b1503f613e7f
+  - enabled: 1
+    path: Assets/DemoScenes/ENDSCENE.unity
+    guid: da1cf2d2ea85cd048aa1240be81db3fd
+  - enabled: 1
+    path: Assets/DemoScenes/faal.unity
+    guid: 02f853dad6789c84faf52721229ae493
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 07ac024a942eee14bb7ea7d22a992408,
       type: 2}

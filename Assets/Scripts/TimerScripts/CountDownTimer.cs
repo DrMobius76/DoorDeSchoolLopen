@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class CountDownTimer : MonoBehaviour
 {
@@ -23,6 +24,10 @@ public class CountDownTimer : MonoBehaviour
 
     void Update()
     {
+        if (timeRemaining < 0)
+        {
+            SceneManager.LoadScene("faal");
+        }
         if (StartBool && TimerScreen.activeSelf)
         {
             if (timeRemaining > 0)

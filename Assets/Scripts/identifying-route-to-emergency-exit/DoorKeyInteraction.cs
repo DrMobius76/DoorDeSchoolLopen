@@ -4,43 +4,51 @@ using UnityEngine;
 
 public class DoorKeyInteraction : MonoBehaviour
 {
-    public GameObject arrow; // De pijl die moet bewegen
-    public Transform Door2; // De positie van deur 2
-    public Transform Door3; // De positie van deur 3
-    public BoxCollider doorCollider1; // De BoxCollider van de deur
-    public BoxCollider doorCollider2; // De BoxCollider van de deur
+    public GameObject door1; 
+    public GameObject door2; 
+    public GameObject door3; 
+    public GameObject door4;
+    public GameObject door5;  
+    public GameObject door6;  
+    public GameObject door7;
     private bool isDoorUnlocked = false; // Controleert of de deur is geopend
-    
-
-    void Start()
-    {
-        doorCollider1.isTrigger = false; 
-        doorCollider2.isTrigger = false; 
-    }
 
     void Update()
     {
         Doorlockcheck1();
 
         Doorlockcheck2();
+
+        Doorlockcheck3();
     }
     private void Doorlockcheck1()
     {
         if (Input.GetKeyDown(KeyCode.E)) // Controleer of de deur al geopend is
         {
-            doorCollider1.isTrigger = true; // De deur wordt doorgankelijk
-            arrow.transform.position = Door2.position + new Vector3(0, 1, 0); // Verplaats de pijl naar de volgende deur
+            door1.SetActive(false); // De deur wordt doorgankelijk
+            door2.SetActive(false); // De deur wordt doorgankelijk
         }
     }
     private void Doorlockcheck2()
     {
         if (Input.GetKeyDown(KeyCode.I)) // Controleer of de deur al geopend is
         {
-            doorCollider2.isTrigger = true; // De deur wordt doorgankelijk
-            arrow.transform.position = Door3.position + new Vector3(0, 1, 0); // Verplaats de pijl naar de volgende deur
+            door3.SetActive(false); // De deur wordt doorgankelijk
+            door4.SetActive(false); // De deur wordt doorgankelijk
+            
         }
     }
-    
+
+    private void Doorlockcheck3()
+    {
+        if (Input.GetKeyDown(KeyCode.U)) // Controleer of de deur al geopend is
+        {
+            door5.SetActive(false); // De deur wordt doorgankelijk
+            door6.SetActive(false); // De deur wordt doorgankelijk
+            door7.SetActive(false); // De deur wordt doorgankelijk
+        }
+
+    }
 
     private void OnTriggerEnter(Collider other)
     {
