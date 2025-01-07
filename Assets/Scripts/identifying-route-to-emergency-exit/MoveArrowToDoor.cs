@@ -14,7 +14,7 @@ public class MoveArrowToDoor : MonoBehaviour
     void Start()
     {
         // Stel de standaard rotatie van de pijl in (rechtop met punt naar beneden)
-        arrowRotation = Quaternion.Euler(0, 0, 0);
+        arrowRotation = Quaternion.Euler(-160, 90, -417);
 
         // Startpositie van de pijl boven deur 1
         currentDoor = Door1;
