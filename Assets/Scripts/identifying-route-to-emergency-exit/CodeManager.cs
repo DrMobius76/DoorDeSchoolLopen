@@ -7,8 +7,10 @@ public class CodeManager : MonoBehaviour
 {
     public string correctCode = "1234"; // De juiste pincode
     private string enteredCode = "";   // De code die de speler invoert
-    public TextMeshProUGUI feedbackText;   // Tekstveld voor feedback
     public TextMeshProUGUI codeDisplay;    // Tekstveld om de ingevoerde code weer te geven
+    public GameObject door1;
+    public GameObject door2;
+    public bool codeCorrect = false; // Maak deze variabele publiek
 
     void Start()
     {
@@ -38,15 +40,25 @@ public class CodeManager : MonoBehaviour
     {
         if (enteredCode == correctCode)
         {
-            //feedbackText.text = "Correct! De deur is ontgrendeld.";
             Debug.Log("De pincode is juist!");
-            // Hier kun je de deur openen of andere acties uitvoeren
+            door1.SetActive(false);
+            door2.SetActive(false);
+            codeCorrect = true;
+            gameObject.SetActive(false);
         }
         else
         {
-            //feedbackText.text = "Incorrect. Probeer opnieuw.";
             Debug.Log("De pincode is onjuist!");
             ResetCode(); // Reset de code na een foutieve invoer
         }
     }
+
+    public void Checkcanvas()
+    {
+        if (codeCorrect)
+        {
+            gameObject.SetActive(false);
+        }
+    }
 }
+
