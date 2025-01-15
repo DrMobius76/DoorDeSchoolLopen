@@ -5,9 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/VR-Scenes/VR-Start scherm.unity
     guid: caa81c69f6155754e93033569b4b6577
@@ -29,6 +26,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/VR-Scenes/Praktijk lokaal.unity
     guid: 88585ef5c30cf2d4c841b1503f613e7f
+  - enabled: 1
+    path: Assets/Scenes/VRSceneDemo.unity
+    guid: 2653fc2682a9be4499ce35c507044ab3
+  - enabled: 1
+    path: Assets/Scenes/DemoScene.unity
+    guid: a3360727dcc1c5245a5fd54324a3faba
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 07ac024a942eee14bb7ea7d22a992408,
       type: 2}

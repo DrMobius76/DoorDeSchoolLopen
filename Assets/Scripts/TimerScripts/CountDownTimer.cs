@@ -13,12 +13,15 @@ public class CountDownTimer : MonoBehaviour
 
     private const float MIN_TIME = 60f; // 1 minute in seconds
     private const float MAX_TIME = 600f; // 10 minutes in seconds
+    public float startTime;
+    public float totalTimeGone;
 
     void Start()
     {
         StartBool = false;
         Timer.text = "03:00";
         Timer.color = Color.green;
+        startTime = timeRemaining;
     }
 
     void Update()
@@ -105,5 +108,10 @@ public class CountDownTimer : MonoBehaviour
     public void DeactivateEasterEgg()
     {
         IsEasterEggActive = false;
+    }
+
+    public void CalculateTimeGone()
+    {
+        totalTimeGone = startTime - Mathf.Max(0, timeRemaining);
     }
 }

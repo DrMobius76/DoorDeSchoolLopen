@@ -9,46 +9,53 @@ public class KeyPad : MonoBehaviour
     [SerializeField] private TextMeshProUGUI ans;
     private int length;
     private string code;
-    [SerializeField] private GameObject door;
+    [SerializeField] private GameObject[] doors;
 
     void Start()
     {
         ans.text = "";
         length = 0;
+        code = "";
     }
 
-    // Start is called before the first frame update
+    // Function to handle number input
     public void Number(int number)
     {
         if (length < 4)
         {
-            ans.text +=(" " + number.ToString());
-            code += number.ToString();
+            ans.text += " " + number.ToString(); // Append the number to the displayed code
+            code += number.ToString(); // Append the number to the actual code
             length++;
-        }else
-        {
-            Debug.Log("Te Lang");
         }
-
+        else
+        {
+            Debug.Log("Code is too long.");
+        }
     }
 
+    // Reset the input
     public void Reset()
     {
         ans.text = "";
         length = 0;
         code = "";
-    }   
+    }
 
+    // Submit the code and check its correctness
     public void Submit()
     {
-        if(code == "8756")
+        if (code == "8756") // Correct code
         {
-            Debug.Log("correct");
-            door.SetActive(false);
-            length = 5;
-        }else
+            Debug.Log("Correct code entered.");
+            foreach (GameObject door in doors)
+            {
+                door.SetActive(false); // Disable doors
+            }
+            Reset();
+        }
+        else // Incorrect code
         {
-            Debug.Log("Wrong");
+            Debug.Log("Incorrect code entered.");
             Reset();
         }
     }
