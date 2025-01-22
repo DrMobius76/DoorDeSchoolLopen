@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Keycard : MonoBehaviour
 {
-    public GameObject interactionText; // UI Text to show interaction prompt
+    public GameObject interaction; // UI Text to show interaction prompt
     public TextMeshProUGUI textElement; // The text content
     public Invertaris invertaris; // Reference to inventory
     public int id; // Keycard ID to differentiate between keys
@@ -14,7 +14,7 @@ public class Keycard : MonoBehaviour
     void Start()
     {
         // Hide interaction text initially
-        interactionText.SetActive(false);
+        interaction.SetActive(false);
     }
 
     void Update()
@@ -23,7 +23,7 @@ public class Keycard : MonoBehaviour
         if (isPlayerNearby && Input.GetKeyDown(KeyCode.E))
         {
             GrapKeycard();
-            interactionText.SetActive(false); // Hide text after picking up
+            interaction.SetActive(false); // Hide text after picking up
             Destroy(gameObject); // Remove the keycard from the scene
         }
     }
@@ -34,7 +34,7 @@ public class Keycard : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerNearby = true;
-            interactionText.SetActive(true);
+            interaction.SetActive(true);
             textElement.text = "Press E to pickup";
         }
     }
@@ -45,7 +45,7 @@ public class Keycard : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerNearby = false;
-            interactionText.SetActive(false);
+            interaction.SetActive(false);
         }
     }
 

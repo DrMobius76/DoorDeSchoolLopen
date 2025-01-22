@@ -10,10 +10,11 @@ public class PlayerDetector : MonoBehaviour
     public GameObject interactionText;
     public CodeManager codeManager; // Voeg een referentie naar CodeManager toe
     public TextMeshProUGUI textElement;
+    public bool done;
 
     void FixedUpdate()
     { 
-        if (isPlayerInZone && Input.GetKeyDown(KeyCode.K) && interactionText.activeSelf && !numpadPrefab.GetComponent<CodeManager>().codeCorrect)
+        if (isPlayerInZone && Input.GetKeyDown(KeyCode.E) && interactionText.activeSelf && !numpadPrefab.GetComponent<CodeManager>().codeCorrect)
         {
             Interact();
         }
@@ -44,11 +45,11 @@ public class PlayerDetector : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player")&& !done)
         {
             isPlayerInZone = true;
             interactionText.SetActive(true);
-            textElement.text = "Press K to Interact PlayerDetector";
+            textElement.text = "Press E to Interact";
             Debug.Log("Player is in the Numpad-zone. Press K to activate the Numpad");
         }
     }

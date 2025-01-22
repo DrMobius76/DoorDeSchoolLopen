@@ -10,6 +10,7 @@ public class CodeManager : MonoBehaviour
     public TextMeshProUGUI codeDisplay;    // Tekstveld om de ingevoerde code weer te geven
     public GameObject door1;
     public GameObject door2;
+    public PlayerDetector playerDetector;
     public bool codeCorrect = false; // Maak deze variabele publiek
 
     void Start()
@@ -45,6 +46,7 @@ public class CodeManager : MonoBehaviour
             door2.SetActive(false);
             codeCorrect = true;
             gameObject.SetActive(false);
+            playerDetector.done = true;
         }
         else
         {
