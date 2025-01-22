@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerDetector : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class PlayerDetector : MonoBehaviour
     private bool isPlayerInZone = false;
     public GameObject interactionText;
     public CodeManager codeManager; // Voeg een referentie naar CodeManager toe
+    public TextMeshProUGUI textElement;
 
     void FixedUpdate()
     { 
@@ -46,6 +48,7 @@ public class PlayerDetector : MonoBehaviour
         {
             isPlayerInZone = true;
             interactionText.SetActive(true);
+            textElement.text = "Press K to Interact PlayerDetector";
             Debug.Log("Player is in the Numpad-zone. Press K to activate the Numpad");
         }
     }
