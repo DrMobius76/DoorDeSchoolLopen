@@ -6,19 +6,19 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/DemoScenes/StartSchermDesktop.unity
+    path: Assets/Scenes/Game/StartSchermDesktop.unity
     guid: d22eef92106a160469d1bed1a449ec91
   - enabled: 1
-    path: Assets/DemoScenes/Ingame-Menu.unity
+    path: Assets/Scenes/Game/Ingame-Menu.unity
     guid: 8fbd23b38aaf5c144b32ceca19a91be4
   - enabled: 1
-    path: Assets/DemoScenes/SchoolDemo.unity
+    path: Assets/Scenes/Game/SchoolDemo.unity
     guid: ef2271a80663aae489a976ed97d298f7
   - enabled: 1
-    path: Assets/DemoScenes/ENDSCENE.unity
+    path: Assets/Scenes/Game/ENDSCENE.unity
     guid: da1cf2d2ea85cd048aa1240be81db3fd
   - enabled: 1
-    path: Assets/DemoScenes/faal.unity
+    path: Assets/Scenes/Game/faal.unity
     guid: 02f853dad6789c84faf52721229ae493
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 07ac024a942eee14bb7ea7d22a992408,
