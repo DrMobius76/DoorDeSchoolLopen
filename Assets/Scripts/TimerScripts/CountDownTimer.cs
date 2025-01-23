@@ -7,19 +7,19 @@ using UnityEngine.SceneManagement;
 public class CountDownTimer : MonoBehaviour
 {
     public TextMeshProUGUI Timer;
-    private float timeRemaining = 180f; // Default 3 minutes
-    public bool StartBool;
+    private float timeRemaining;
     public GameObject TimerScreen; // UI Timer Screen
     public bool IsEasterEggActive = false; // Indicates if the easter egg is active
 
     private const float MIN_TIME = 60f; // 1 minute in seconds
     private const float MAX_TIME = 600f; // 10 minutes in seconds
 
+    public static float TimeLimit { get; set; } = 180f; // Default 3 minutes
+
     void Start()
     {
-        StartBool = false;
-        Timer.text = "03:00";
-        Timer.color = Color.green;
+        timeRemaining = Mathf.Clamp(TimeLimit, MIN_TIME, MAX_TIME);
+        UpdateTimerDisplay();
     }
 
     void Update()
@@ -28,7 +28,7 @@ public class CountDownTimer : MonoBehaviour
         {
             SceneManager.LoadScene("faal");
         }
-        if (StartBool && TimerScreen.activeSelf)
+        if (TimerScreen.activeSelf)
         {
             if (timeRemaining > 0)
             {
@@ -56,13 +56,7 @@ public class CountDownTimer : MonoBehaviour
         }
     }
 
-    public void StartGame()
-    {
-        StartBool = true;
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-    }
-
+  
     public void AddTime()
     {
         if (!IsEasterEggActive && timeRemaining + 60f <= MAX_TIME)

@@ -2465,7 +2465,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Timer: {fileID: 1378818297}
-  StartBool: 0
   TimerScreen: {fileID: 2054071791}
   IsEasterEggActive: 0
 --- !u!1 &915927271 stripped
@@ -2898,7 +2897,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3604419001411112375, guid: 0ddaa6e070ae5c44eb6055ee98de5045, type: 3}
+    - {fileID: 5978256235056120300, guid: 0ddaa6e070ae5c44eb6055ee98de5045, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6765073842189083267, guid: 0ddaa6e070ae5c44eb6055ee98de5045,
         type: 3}
@@ -3382,7 +3383,7 @@ MonoBehaviour:
   codeDisplay: {fileID: 911379336}
   door1: {fileID: 860721474}
   door2: {fileID: 1738258801}
-  playerDetector: {fileID: 0}
+  playerDetector: {fileID: 8919589052274019067}
   codeCorrect: 0
 --- !u!1 &1229614524 stripped
 GameObject:
@@ -4993,17 +4994,17 @@ PrefabInstance:
     - target: {fileID: 3367591002157374327, guid: cd2a241c1a9e2a246a7a3038554a401c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -192.75
+      value: -192.78
       objectReference: {fileID: 0}
     - target: {fileID: 3367591002157374327, guid: cd2a241c1a9e2a246a7a3038554a401c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 85.3
+      value: 84.88
       objectReference: {fileID: 0}
     - target: {fileID: 3367591002157374327, guid: cd2a241c1a9e2a246a7a3038554a401c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -416.43
+      value: -416.82
       objectReference: {fileID: 0}
     - target: {fileID: 3367591002157374327, guid: cd2a241c1a9e2a246a7a3038554a401c,
         type: 3}
@@ -87168,7 +87169,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2110462737
 RectTransform:
   m_ObjectHideFlags: 0

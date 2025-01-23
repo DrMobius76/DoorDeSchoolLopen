@@ -12,9 +12,9 @@ public class ToetsenScherm : MonoBehaviour
 
     public void ScreenActive()
     {
-        if (distance < 5 /*&& gotKeyCard*/)
+        if (distance < 5)
         {
-            numberPad.SetActive( true );
+            numberPad.SetActive(true);
         }
     }
     void Start()
