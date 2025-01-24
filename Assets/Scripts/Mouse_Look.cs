@@ -1,31 +1,41 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Mouse_Look : MonoBehaviour
+public class RotateWithCamera : MonoBehaviour
 {
-    public float mouseSensitivity = 600f;
+    public Transform cameraTransform; // De camera die de richting bepaalt
+    public float rotationSpeed = 10f; // Snelheid van rotatie
 
-    public Transform playerBody;
-
-    private float xRotation = 0f;
-    // Start is called before the first frame update
-    void Start()
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        // Verkrijg de input van de speler
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
 
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-        
-        
-        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-        playerBody.Rotate(Vector3.up * mouseX);
+        // Bereken de bewegingsrichting in lokale ruimte van de camera
+        Vector3 moveDirection = new Vector3(horizontal, 0f, vertical);
+
+        if (moveDirection != Vector3.zero)
+        {
+            // Verkrijg de richting van de camera op de Y-as
+            Vector3 cameraForward = cameraTransform.forward;
+            Vector3 cameraRight = cameraTransform.right;
+
+            // Zorg ervoor dat de camera alleen op de Y-as rotert
+            cameraForward.y = 0f;
+            cameraRight.y = 0f;
+
+            // Normaliseer de richtingen
+            cameraForward.Normalize();
+            cameraRight.Normalize();
+
+            // Bereken de gewenste bewegingsrichting in wereldruimte
+            Vector3 worldDirection = cameraForward * moveDirection.z + cameraRight * moveDirection.x;
+
+            // Bereken de gewenste rotatie op basis van de bewegingsrichting
+            Quaternion targetRotation = Quaternion.LookRotation(worldDirection);
+
+            // Draai de kubus langzaam naar de gewenste rotatie
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        }
     }
 }

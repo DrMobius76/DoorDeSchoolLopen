@@ -17,13 +17,14 @@ public class Menu : MonoBehaviour
     public Slider brightnessSlider; // Sleep je slider hierheen in de Inspector
     public Slider volumeSlider;
     public GameObject options;
-
     // Start is called before the first frame update
 
     public void StartGame()
     {
         GameManager.Instance.timeLimit = timeLimit;
         SceneManager.LoadScene("SchoolDemo");
+
+
         GameManager.Instance.volume = volumeSlider.value;
         GameManager.Instance.brightness = brightnessSlider.value;
         GameManager.Instance.canPause = true;
@@ -32,7 +33,7 @@ public class Menu : MonoBehaviour
         // Stel de tijdslimiet in voor de CountDownTimer
         CountDownTimer.TimeLimit = timeLimit;
     }
-
+    
     public void SetTimeLimit(float TimeLimit)
     {
         timeLimit = TimeLimit;

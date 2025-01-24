@@ -1,6 +1,5 @@
-﻿using UnityEngine;
-using UnityEngine.EventSystems;
 
+using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement Settings")]
@@ -10,12 +9,13 @@ public class PlayerMovement : MonoBehaviour
     public Transform cameraTransform;
     private CharacterController controller;
     private Vector3 velocity;
+    private Animator animator;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        animator = GetComponent<Animator>(); // Zorgt ervoor dat de animator wordt gekoppeld aan de dingen in Unity
+
     }
 
     void Update()
@@ -31,8 +31,12 @@ public class PlayerMovement : MonoBehaviour
             // Controleer op sprong
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                Debug.Log("Dit werkt");
                 Jump();
+                animator.SetBool("VictoryJump", true);
+            }
+            else
+            {
+                animator.SetBool("VictoryJump", false);
             }
         }
 
@@ -60,9 +64,39 @@ public class PlayerMovement : MonoBehaviour
         forward.Normalize();
         right.Normalize();
 
-        Vector3 velocity = (forward * vertical + right * horizontal).normalized;
+        Vector3 moveDirection = (forward * vertical + right * horizontal).normalized;
 
-        controller.Move(velocity * speed * Time.deltaTime);
+        controller.Move(moveDirection * speed * Time.deltaTime);
+
+        //gigantische if statement is voor de animatie, detecteerd basicly of er een toets ingedrukt wordt en speelt dan de coresponderende animatie af
+        if (Input.GetKey(KeyCode.W))
+        {
+            animator.SetBool("IsMoving", true);
+        }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            animator.SetBool("Moonwalking", true);
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            animator.SetBool("StravingRight", true);
+        }
+        else if (Input.GetKey(KeyCode.A))
+        {
+            animator.SetBool("StravingLeft", true);
+        }
+        else if (Input.GetKey(KeyCode.T) && Input.GetKey(KeyCode.P))
+        {
+            animator.SetBool("TP", true);
+        }
+        else
+        {
+            animator.SetBool("IsMoving", false);
+            animator.SetBool("Moonwalking", false);
+            animator.SetBool("StravingRight", false);
+            animator.SetBool("StravingLeft", false);
+            animator.SetBool("TP", false);
+        }
     }
 
     void Jump()
