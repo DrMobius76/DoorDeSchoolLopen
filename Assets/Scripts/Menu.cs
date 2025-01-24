@@ -22,13 +22,18 @@ public class Menu : MonoBehaviour
     public void StartGame()
     {
         GameManager.Instance.timeLimit = timeLimit;
-        SceneManager.LoadScene("VR"); //Dit moet nog aangepast worden
+        SceneManager.LoadScene("SchoolDemo");
+
+
         GameManager.Instance.volume = volumeSlider.value;
         GameManager.Instance.brightness = brightnessSlider.value;
         GameManager.Instance.canPause = true;
         GameManager.Instance.isRunning = true;
-        
+
+        // Stel de tijdslimiet in voor de CountDownTimer
+        CountDownTimer.TimeLimit = timeLimit;
     }
+    
     public void SetTimeLimit(float TimeLimit)
     {
         timeLimit = TimeLimit;

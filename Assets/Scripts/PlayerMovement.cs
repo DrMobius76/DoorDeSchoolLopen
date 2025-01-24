@@ -1,5 +1,5 @@
-using UnityEngine;
 
+using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement Settings")]
@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>(); // Zorgt ervoor dat de animator wordt gekoppeld aan de dingen in Unity
+
     }
 
     void Update()

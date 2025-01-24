@@ -13,7 +13,7 @@ public class MouseCameraRotation : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     void LateUpdate()

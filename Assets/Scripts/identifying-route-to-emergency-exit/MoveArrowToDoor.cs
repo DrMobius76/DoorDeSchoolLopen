@@ -9,12 +9,11 @@ public class MoveArrowToDoor : MonoBehaviour
     public Transform Door3; // De positie van deur 3
 
     private Transform currentDoor; // Houdt bij boven welke deur de pijl zich bevindt
-    private Quaternion arrowRotation; // Standaard rotatie van de pijl (rechtop)
-
+   
     void Start()
     {
         // Stel de standaard rotatie van de pijl in (rechtop met punt naar beneden)
-        arrowRotation = Quaternion.Euler(0, 0, 0);
+        
 
         // Startpositie van de pijl boven deur 1
         currentDoor = Door1;
@@ -54,7 +53,6 @@ public class MoveArrowToDoor : MonoBehaviour
         if (currentDoor != null)
         {
             transform.position = currentDoor.position + new Vector3(0, 1, 0); // Verplaats de pijl boven de deur
-            transform.rotation = arrowRotation; // Houd de pijl rechtop
         }
     }
 }

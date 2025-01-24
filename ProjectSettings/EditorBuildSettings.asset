@@ -6,31 +6,19 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/VR-Scenes/VR-Start scherm.unity
-    guid: caa81c69f6155754e93033569b4b6577
+    path: Assets/Scenes/Game/StartSchermDesktop.unity
+    guid: d22eef92106a160469d1bed1a449ec91
   - enabled: 1
-    path: Assets/VR-Scenes/Theorie lokaal 1.unity
-    guid: 93e5dc38f1a0c1c4ca1c00742d78c212
+    path: Assets/Scenes/Game/Ingame-Menu.unity
+    guid: 8fbd23b38aaf5c144b32ceca19a91be4
   - enabled: 1
-    path: Assets/VR-Scenes/Zelfstudie ruimte.unity
-    guid: 8820f4ea9dc934b4786a57a375a0b732
+    path: Assets/Scenes/Game/SchoolDemo.unity
+    guid: ef2271a80663aae489a976ed97d298f7
   - enabled: 1
-    path: Assets/VR-Scenes/Media room.unity
-    guid: ed293a3f9ac41bd41b125ee3515e3c49
-  - enabled: 1
-    path: Assets/VR-Scenes/Student ruimte.unity
-    guid: 1a3ed615d95034c4a8ae0fc984ed5f2c
-  - enabled: 1
-    path: Assets/VR-Scenes/Project lokaal.unity
-    guid: e0252d4e13378de4bbefe56304a8f019
-  - enabled: 1
-    path: Assets/VR-Scenes/Praktijk lokaal.unity
-    guid: 88585ef5c30cf2d4c841b1503f613e7f
-  - enabled: 1
-    path: Assets/DemoScenes/ENDSCENE.unity
+    path: Assets/Scenes/Game/ENDSCENE.unity
     guid: da1cf2d2ea85cd048aa1240be81db3fd
   - enabled: 1
-    path: Assets/DemoScenes/faal.unity
+    path: Assets/Scenes/Game/faal.unity
     guid: 02f853dad6789c84faf52721229ae493
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 07ac024a942eee14bb7ea7d22a992408,
@@ -39,6 +27,8 @@ EditorBuildSettings:
       type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: b730db8ef88b4b44888783da1fe940c8,
       type: 2}
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
+      guid: 05bb2c7dd8f4ac643b1f8f5e41d56dae, type: 2}
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 886d4f26ab1b8b5499ecf6e2a5d7603f,
       type: 2}
     com.unity.xr.magicleap.magic_leap_settings: {fileID: 11400000, guid: f857aca6236c03d4a861972aeb93a1b9,
