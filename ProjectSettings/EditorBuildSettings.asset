@@ -27,11 +27,17 @@ EditorBuildSettings:
     path: Assets/VR-Scenes/Praktijk lokaal.unity
     guid: 88585ef5c30cf2d4c841b1503f613e7f
   - enabled: 1
-    path: Assets/Scenes/VRSceneDemo.unity
+    path: Assets/Scenes/VRSceneGameAf.unity
     guid: 2653fc2682a9be4499ce35c507044ab3
   - enabled: 1
     path: Assets/Scenes/DemoScene.unity
     guid: a3360727dcc1c5245a5fd54324a3faba
+  - enabled: 1
+    path: Assets/Scenes/StartSchermDesktop.unity
+    guid: d22eef92106a160469d1bed1a449ec91
+  - enabled: 1
+    path: Assets/Scenes/StartSchermVR.unity
+    guid: 6c313026665120c4da5b393fa22a83fa
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 07ac024a942eee14bb7ea7d22a992408,
       type: 2}

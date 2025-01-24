@@ -12,6 +12,9 @@ public class EndZoneEndGame : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Cursor.lockState = CursorLockMode.None; // Allow free cursor movement
+        Cursor.visible = true; // Make the cursor visible
+
         // Calculate the total time elapsed
         Timer.CalculateTimeGone();
 

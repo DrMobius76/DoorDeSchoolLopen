@@ -18,11 +18,20 @@ public class CountDownTimer : MonoBehaviour
 
     void Start()
     {
-        StartBool = false;
-        Timer.text = "03:00";
-        Timer.color = Color.green;
-        startTime = timeRemaining;
+        StartBool = true;
+
+        // Get the timer duration from GameDataManager
+        timeRemaining = TimeDataManager.Instance.TimerDuration;
+
+        // Initialize the timer display
+        int minutes = Mathf.FloorToInt(timeRemaining / 60);
+        int seconds = Mathf.FloorToInt(timeRemaining % 60);
+        Timer.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+
+        Timer.color = Color.green; // Initial color
+        startTime = timeRemaining; // Track the start time
     }
+
 
     void Update()
     {
@@ -54,10 +63,10 @@ public class CountDownTimer : MonoBehaviour
         }
     }
 
-    public void StartGame()
+    /*public void StartGame()
     {
         StartBool = true;
-    }
+    }*/
 
     public void AddTime()
     {
